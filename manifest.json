@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "Autolog",
+  "version": "1.0.0",
+  "content_scripts": [
+    {
+      "matches": ["https://login.microsoftonline.com/*"],
+      "js": ["Content.js"]
+    }
+  ]
+}
