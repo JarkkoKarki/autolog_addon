@@ -12,12 +12,17 @@ function waitForElement(selector, callback, interval = 100, timeout = 10000) {
     }
   }, interval);
 }
+waitForElement(
+  "#i0116",
+  (emailInput) => {
+    emailInput.value = "email";
+    emailInput.dispatchEvent(new Event("input", { bubbles: true }));
 
-waitForElement("#i0116", (emailInput) => {
-  emailInput.value = "email";
-  emailInput.dispatchEvent(new Event("input", { bubbles: true })); // Dispatch an 'input' event to trigger listeners
+    waitForElement("#idSIButton9", (nextButton) => {
+      nextButton.click();
+    });
+  },
+  100,
+  20000
+);
 
-  waitForElement("#idSIButton9", (nextButton) => {
-    nextButton.click();
-  });
-});
